@@ -2,25 +2,29 @@ package HW6;
 
 import java.util.Random;
 
+import static jdk.nashorn.internal.objects.NativeMath.max;
 import static jdk.nashorn.internal.objects.NativeMath.random;
 
 public class Dog extends Animals {
     public Dog(String name, String color, int age, int runDistance, int swimDistance) {
         super(name, color, age, runDistance, swimDistance);
     }
-    Random random;
 
+
+    Random random = new Random();
+//Randon random;
     int maxRunDistance;
 
     @Override
     public void run() {
-        maxRunDistance = (int) (400+200 * random(1));
+        //maxRunDistance = (int) (400 + 200 * random(1));
+        maxRunDistance = (int) random.nextInt(400)+200;
 
 
         if (maxRunDistance >= runDistance) {
             System.out.println(name + ": " + runDistance + " метров, догоняй...или я буду первый!!! :)");
         } else {
-            System.out.println(name + ":\nБеги сам туда:) Ты хотел заставить бежать аж :" + runDistance + " метров, а я могу лишь " + maxRunDistance+ " метров");
+            System.out.println(name + ":\nБеги сам туда:) Ты хотел заставить бежать аж :" + runDistance + " метров, а я могу лишь " + maxRunDistance + " метров");
         }
     }
 
